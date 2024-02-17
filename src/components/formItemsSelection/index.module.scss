@@ -1,0 +1,86 @@
+.selectContainer {
+    width: 100%;
+    display: flex;
+    gap: 5%;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+
+
+        .valuesContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100%;
+            gap: .5rem;
+
+
+        }
+    }
+}
+
+.selectedContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .selectedLabel {
+        text-align: start;
+    }
+
+    .selectedButtons {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
+
+    .textInfo {
+        text-align: start;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #B41E1E;
+    }
+}
+
+.itemButton {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    max-height: 4rem;
+
+    &:hover {
+        border: 1px solid #1eb487;
+    }
+}
+
+.itemButtonSelected {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    font-weight: 500;
+
+    border: 1px solid #1eb487;
+
+    &:hover {
+        border: 1px solid #B41E1E;
+
+    }
+}

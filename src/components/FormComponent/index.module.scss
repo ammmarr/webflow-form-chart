@@ -1,0 +1,63 @@
+.container {
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 2.5rem;
+    min-height: 50vh;
+    height: fit-content;
+    background-color: #faf7f0;
+    padding: 2rem;
+    display: flex;
+    align-items: stretch;
+    gap: 5%;
+
+    .titleContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3rem;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            h3 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            h4 {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+
+            p {
+                font-weight: 500;
+            }
+        }
+
+        .nextAndPrev {
+            display: flex;
+            gap: 1rem;
+        }
+
+    }
+
+    form {
+        flex: 3;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 2rem;
+
+        label {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+
+    }
+}

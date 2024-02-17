@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    height: auto;
+    box-sizing: content-box;
+    column-gap: 5%;
+    row-gap: 1rem;
+
+    .inputContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        height: fit-content;
+
+        label {
+            text-align: start;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+    }
+}
