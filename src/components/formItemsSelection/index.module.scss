@@ -9,6 +9,9 @@
         height: 100%;
 
 
+        label {
+            text-wrap: nowrap;
+        }
 
         .valuesContainer {
             display: flex;
@@ -82,5 +85,17 @@
     &:hover {
         border: 1px solid #B41E1E;
 
+    }
+}
+
+@media (max-width:1240px) {
+    .selectContainer {
+        flex-direction: column;
+        gap: 5vh;
+
+        .valuesContainer {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }

@@ -61,3 +61,15 @@
 
     }
 }
+
+@media (max-width:1240px) {
+    .container {
+        flex-direction: column-reverse;
+        gap: 5vh;
+
+        form {
+            align-items: center;
+        }
+    }
+
+}

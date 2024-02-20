@@ -4,11 +4,20 @@ import {
 	ArcElement,
 	Tooltip,
 	Legend,
+	Plugin,
+	Option,
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 import useFormStore from "../../store";
+import annotationPlugin from "chartjs-plugin-annotation";
 import style from "./index.module.scss";
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(
+	RadialLinearScale,
+	ArcElement,
+	Tooltip,
+	Legend,
+	annotationPlugin,
+);
 
 const Chart = () => {
 	const rangeValues = useFormStore((store) => store.rangeValues);
@@ -21,40 +30,56 @@ const Chart = () => {
 			{
 				label: "# of Votes",
 				data: dataValues,
-				backgroundColor: [
-					"rgba(255, 99, 132, 0.5)",
-					"rgba(54, 162, 235, 0.5)",
-					"rgba(255, 206, 86, 0.5)",
-					"rgba(75, 192, 192, 0.5)",
-					"rgba(153, 102, 255, 0.5)",
-					"rgba(255, 159, 64, 0.5)",
-					"rgba(100, 200, 50, 0.5)",
-					"rgba(200, 100, 150, 0.5)",
-					"rgba(50, 150, 200, 0.5)",
-					"rgba(170, 50, 200, 0.5)",
-					"rgba(200, 50, 100, 0.5)",
-					"rgba(50, 200, 150, 0.5)",
-				],
-				borderWidth: 0.2,
+				backgroundColor: ["transparent"],
+
+				borderWidth: 1,
+				borderColor: ["black"],
 			},
 		],
 	};
 
 	// Set options for the chart
-	const options = {
+	const options: Option = {
+		legend: {
+			display: false,
+		},
+
+		hover: {
+			mode: "nearest",
+			intersect: true,
+		},
 		scales: {
 			r: {
-				suggestedMin: 0,
-				suggestedMax: 10, // Set the default max value to 10
+				ticks: {
+					display: false, // Hide the ticks (radius values) on the r scale
+				},
+				pointLabels: {
+					display: true,
+					align: "center", // Position labels radially
+					centerPointLabels: true,
+					font: {
+						size: 10,
+					},
+				},
 			},
 		},
 		elements: {
 			arc: {
-				borderWidth: 0.2,
+				borderWidth: 5, // Increase the border width for better visibility
+				borderColor: "#000", // Set border color
+				backgroundColor: "rgba(0, 0, 0, 0)", // Set transparent background color
 			},
 		},
-		startAngle: -0.5 * Math.PI, // Rotate the chart to start from the top
-		rotation: -0.5 * Math.PI, // Rotate the labels to align with the data points
+		startAngle: -0.5 * Math.PI,
+		rotation: -0.5 * Math.PI,
+		plugins: {
+			legend: {
+				display: false,
+			},
+			tooltip: {
+				enabled: false, // Disable tooltips
+			},
+		},
 	};
 
 	return (

@@ -6,6 +6,13 @@
     height: 100%;
 
     .wrapper {
-        width: 60%;
+        // background-color: rgba(255, 0, 0, 0.217);
+        // outline: 1px solid red;
+        // border-radius: 50%;
+        width: 100%;
+        max-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
