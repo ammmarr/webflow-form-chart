@@ -1,26 +1,7 @@
 import Slider from "@mui/material/Slider";
 import useFormStore from "../../store";
 import style from "./index.module.scss";
-import makeStyles from "@mui/material/styles/makeStyles";
-import { Typography } from "@mui/material";
 
-const CustomValueLabel = ({ children, open, value }) => {
-	return (
-		<div style={{ top: -30, position: "relative" }}>
-			<Typography
-				variant="body2"
-				style={{
-					backgroundColor: "black",
-					color: "white",
-					padding: "5px 10px",
-					borderRadius: 4,
-				}}
-			>
-				{value}
-			</Typography>
-		</div>
-	);
-};
 const RangeInputs = () => {
 	const rangeValues = useFormStore((store) => store.rangeValues);
 	const handleInputValueChange = useFormStore(
@@ -49,10 +30,11 @@ const RangeInputs = () => {
 							color: "success.main",
 							"& .MuiSlider-thumb": {
 								border: "5px solid white",
-								outline: "2px solid black",
+								boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px;",
 								color: "black",
 								width: "1.5rem",
 								height: "1.5rem",
+								borderRadius: "50%",
 							},
 							"& .MuiSlider-track": {
 								color: "black",
