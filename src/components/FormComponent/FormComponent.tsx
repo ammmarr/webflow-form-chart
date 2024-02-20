@@ -23,7 +23,7 @@ const FormComponent = () => {
 	const currentPage = useFormStore((store) => store.currentFormPage);
 	const rangeValues = useFormStore((store) => store.rangeValues);
 	const isNextDisabled =
-		rangeValues.length < 1 || rangeValues.length > 12 || currentPage === 2;
+		rangeValues.length < 6 || rangeValues.length > 12 || currentPage === 2;
 	const isPrevDisabled = currentPage === 0;
 	return (
 		<div className={style.container}>
