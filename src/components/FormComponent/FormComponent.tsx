@@ -35,32 +35,36 @@ const FormComponent = () => {
 					))}
 				</div>
 				<div className={style.nextAndPrev}>
-					<button
-						className={
-							isPrevDisabled ? "button-primary-disabled" : "button-primary"
-						}
-						type="button"
-						onClick={goToPrevFormPage}
-						disabled={isPrevDisabled}
-					>
-						Prev
-					</button>
-					<button
-						className={
-							isNextDisabled ? "button-primary-disabled" : "button-primary"
-						}
-						type="button"
-						onClick={goToNextFormPage}
-						disabled={isNextDisabled}
-					>
-						Next
-					</button>
+					{currentPage !== 0 && (
+						<button
+							className={
+								isPrevDisabled ? "button-primary-disabled" : "button-primary"
+							}
+							type="button"
+							onClick={goToPrevFormPage}
+							disabled={isPrevDisabled}
+						>
+							Prev
+						</button>
+					)}
+					{currentPage !== 2 && (
+						<button
+							className={
+								isNextDisabled ? "button-primary-disabled" : "button-primary"
+							}
+							type="button"
+							onClick={goToNextFormPage}
+							disabled={isNextDisabled}
+						>
+							Next
+						</button>
+					)}
 				</div>
 			</div>
 			<form>
+				{currentPage === 2 && <Chart />}
 				{currentPage === 0 && <FormItemsSelection />}
 				{currentPage === 1 && <RangeInputs />}
-				{currentPage === 2 && <Chart />}
 			</form>
 		</div>
 	);

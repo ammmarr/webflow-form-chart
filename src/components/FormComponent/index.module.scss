@@ -64,8 +64,8 @@
 
 @media (max-width:1240px) {
     .container {
-        flex-direction: column-reverse;
         gap: 5vh;
+        flex-direction: column;
 
         form {
             align-items: center;

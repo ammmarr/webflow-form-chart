@@ -37,14 +37,14 @@ const RangeInputs = () => {
 								borderRadius: "50%",
 							},
 							"& .MuiSlider-track": {
-								color: "black",
+								color: "rgba(0, 0, 0, 0.622)",
 								height: "20px",
 								width: "100%",
 								display: "none",
 								opacity: "0.8",
 							},
 							"& .MuiSlider-rail": {
-								backgroundColor: "black", // Apply black color
+								backgroundColor: "rgba(0, 0, 0, 0.622)", // Apply rgba(0, 0, 0, 0.622) color
 								height: 20, // Adjust height
 								overflow: "hidden", // Hide overflow content
 								width: "105%", // Increase width
