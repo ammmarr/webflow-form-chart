@@ -62,10 +62,36 @@ const Chart = () => {
 			{
 				label: "# of Votes",
 				data: dataValues,
-				backgroundColor: ["transparent"],
+				backgroundColor: [
+					"#3fa5a780",
+					"#bba92b80",
+					"#e2415d80",
+					"#6f9dcf80",
+					"#8e4fa680",
+					"#d26ac280",
+					"#f89e1b80",
+					"#b2449980",
+					"#fa802c80",
+					"#0b3d5f80",
+					"#43c39480",
+					"#7f5e9880",
+				],
 
 				borderWidth: 1,
-				borderColor: ["black"],
+				borderColor: [
+					"#3fa5a7",
+					"#bba92b",
+					"#e2415d",
+					"#6f9dcf",
+					"#8e4fa6",
+					"#d26ac2",
+					"#f89e1b",
+					"#b24499",
+					"#fa802c",
+					"#0b3d5f",
+					"#43c394",
+					"#7f5e98",
+				],
 			},
 		],
 	};
@@ -86,9 +112,8 @@ const Chart = () => {
 					stepSize: 1, // Set the step size for ticks
 					reverse: true,
 					font: {
-						size: fontSize,
+						size: fontSize - 2,
 					},
-
 					display: true,
 					backdropColor: "#faf7f0",
 					color: "black", // Set the color for the ticks on the radial axis

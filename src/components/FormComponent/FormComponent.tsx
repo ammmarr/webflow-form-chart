@@ -5,16 +5,20 @@ import FormItemsSelection from "../formItemsSelection/FormItemsSelection";
 import Chart from "../chart/Chart";
 const paragraphs = [
 	[
-		"Our coaching assessment aims to give you a clear snapshot of where you stand in various aspects of your work, encouraging you to reflect on areas for improvement. Please select the most relevant topics for your current professional situation, choosing between six to twelve areas from the list. ",
+		" Our coaching assessment is designed to offer a clear view of your professional landscape, encouraging you to identify and focus on areas ripe for development.",
+		"From the provided list, select topics that resonate most with your current professional phase, choosing between six to twelve areas.",
+		"This selection process is your first step towards targeted growth and enhancement in your career.",
 	],
 	[
-		"Evaluate your current level of satisfaction or achievement in each area using a scale from 1 to 10, where 1 indicates significant concern or dissatisfaction, and 10 reflects optimal satisfaction or achievement.",
+		"Assess your satisfaction or achievement in each selected area on a scale from 1 to 10. ",
+		"A score of 1 means there's significant room for improvement or you're quite dissatisfied",
+		"while a 10 signifies you're at the pinnacle of satisfaction or achievement.",
 	],
 	[
-		"Have a look at the results on the radar chart. What stands out to you? What thoughts, emotions, and impressions come to your mind?",
-		"Now, please select an area to focus on in the upcoming weeks and explain why this area is critical to you. What would a score of 9 or 10 look like in that area?",
-		"Since you are going to make progress in your chosen area that will take you one or two points beyond the current score, what specific steps can you take today to help you move closer to your goal?",
-		"Imagine looking back a year from now; what changes do you want to see in yourself due to your efforts in this area?		",
+		"As you gaze upon your radar chart, notice the peaks and valleys – each tells a story of where you are and where your potential lies. ",
+		"What grabs your attention? Which part of this landscape sparks a feeling or a thought within you?",
+		"Now, focus on one specific area where you're yearning to grow. Imagine, just one hour from now, you could elevate that score. ",
+		"What bold step could you take? This moment is your opportunity to commit to an action that will inch you closer to your goals. Seize it with both hands and let the transformation begin!",
 	],
 ];
 const FormComponent = () => {
@@ -23,7 +27,7 @@ const FormComponent = () => {
 	const currentPage = useFormStore((store) => store.currentFormPage);
 	const rangeValues = useFormStore((store) => store.rangeValues);
 	const isNextDisabled =
-		rangeValues.length < 6 || rangeValues.length > 12 || currentPage === 2;
+		rangeValues.length < 1 || rangeValues.length > 12 || currentPage === 2;
 	const isPrevDisabled = currentPage === 0;
 	return (
 		<div className={style.container}>
