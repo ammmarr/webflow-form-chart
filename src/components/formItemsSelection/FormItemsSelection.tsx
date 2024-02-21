@@ -35,7 +35,7 @@ const FormItemsSelection = () => {
 				})}
 			</div>
 			<div className={style.selectedContainer}>
-				{selectedItems.length > 0 ? (
+				{selectedItems.length > 0 && (
 					<label className={style.selectedLabel}>
 						( {selectedItems.length} ) Selected{" "}
 						<span className={style.textInfo}>
@@ -44,10 +44,6 @@ const FormItemsSelection = () => {
 								: null}
 							{selectedItems.length === 0 && "Try Selecting some items"}
 						</span>
-					</label>
-				) : (
-					<label className={style.selectedLabel}>
-						Try Clicking on items above
 					</label>
 				)}
 

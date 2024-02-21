@@ -82,19 +82,24 @@ const Chart = () => {
 		scales: {
 			r: {
 				ticks: {
+					z: 1,
 					stepSize: 1, // Set the step size for ticks
+					reverse: true,
 					font: {
 						size: fontSize + 2,
 					},
+
 					display: true,
-					backdropColor: "transparent",
-					color: "black", // Transparent color for the ticks on the radial axis
+					backdropColor: "#faf7f0",
+					color: "black", // Set the color for the ticks on the radial axis
 				},
+				suggestedMin: 0,
+				suggestedMax: 10,
 				pointLabels: {
 					display: true,
 					align: "center",
 					centerPointLabels: true,
-					rotation: "auto", // This line might not be necessary, but you can keep it if you want automatic rotation fallback
+					rotation: "auto",
 					font: {
 						size: fontSize,
 					},
