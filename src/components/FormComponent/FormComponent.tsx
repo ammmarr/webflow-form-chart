@@ -30,15 +30,48 @@ const FormComponent = () => {
 		rangeValues.length < 1 || rangeValues.length > 12 || currentPage === 2;
 	const isPrevDisabled = currentPage === 0;
 	return (
-		<div className={style.container}>
-			<div className={style.titleContainer}>
-				<div className={style.text}>
-					<h3>COACHING ASSESSMENT</h3>
-					{paragraphs[currentPage].map((p) => (
-						<p key={p}>{p}</p>
-					))}
+		<div className={style.wrapper}>
+			<div className={style.container}>
+				<div className={style.titleContainer}>
+					<div className={style.text}>
+						<h3>COACHING ASSESSMENT</h3>
+						{paragraphs[currentPage].map((p) => (
+							<p key={p}>{p}</p>
+						))}
+					</div>
+					<div className={`${style.nextAndPrev} hideOnMobileView`}>
+						{currentPage !== 0 && (
+							<button
+								className={
+									isPrevDisabled ? "button-primary-disabled" : "button-primary"
+								}
+								type="button"
+								onClick={goToPrevFormPage}
+								disabled={isPrevDisabled}
+							>
+								Prev
+							</button>
+						)}
+						{currentPage !== 2 && (
+							<button
+								className={
+									isNextDisabled ? "button-primary-disabled" : "button-primary"
+								}
+								type="button"
+								onClick={goToNextFormPage}
+								disabled={isNextDisabled}
+							>
+								Next
+							</button>
+						)}
+					</div>
 				</div>
-				<div className={`${style.nextAndPrev} hideOnMobileView`}>
+				<form>
+					{currentPage === 2 && <Chart />}
+					{currentPage === 0 && <FormItemsSelection />}
+					{currentPage === 1 && <RangeInputs />}
+				</form>
+				<div className={`${style.nextAndPrev} displayOnMobileView`}>
 					{currentPage !== 0 && (
 						<button
 							className={
@@ -64,37 +97,6 @@ const FormComponent = () => {
 						</button>
 					)}
 				</div>
-			</div>
-			<form>
-				{currentPage === 2 && <Chart />}
-				{currentPage === 0 && <FormItemsSelection />}
-				{currentPage === 1 && <RangeInputs />}
-			</form>
-			<div className={`${style.nextAndPrev} displayOnMobileView`}>
-				{currentPage !== 0 && (
-					<button
-						className={
-							isPrevDisabled ? "button-primary-disabled" : "button-primary"
-						}
-						type="button"
-						onClick={goToPrevFormPage}
-						disabled={isPrevDisabled}
-					>
-						Prev
-					</button>
-				)}
-				{currentPage !== 2 && (
-					<button
-						className={
-							isNextDisabled ? "button-primary-disabled" : "button-primary"
-						}
-						type="button"
-						onClick={goToNextFormPage}
-						disabled={isNextDisabled}
-					>
-						Next
-					</button>
-				)}
 			</div>
 		</div>
 	);

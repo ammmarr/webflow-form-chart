@@ -12,6 +12,7 @@ import useFormStore from "../../store";
 import annotationPlugin from "chartjs-plugin-annotation";
 import style from "./index.module.scss";
 import { useEffect, useState } from "react";
+import breakWordsIntoChunks from "../../utils/breakWordsIntoChunks";
 ChartJS.register(
 	RadialLinearScale,
 	ArcElement,
@@ -22,7 +23,7 @@ ChartJS.register(
 
 const Chart = () => {
 	const rangeValues = useFormStore((store) => store.rangeValues);
-	const labels = rangeValues.map((item) => item.name);
+	const labels = useFormStore((store) => store.selectedFormData);
 	const dataValues = rangeValues.map((item) => item.value);
 	const [fontSize, setFontSize] = useState(10); // Default font size
 
@@ -57,7 +58,7 @@ const Chart = () => {
 	}, []);
 
 	const data = {
-		labels,
+		labels: breakWordsIntoChunks(labels, 10),
 		datasets: [
 			{
 				label: "# of Votes",
@@ -101,6 +102,7 @@ const Chart = () => {
 		legend: {
 			display: false,
 		},
+
 		hover: {
 			mode: "nearest",
 			intersect: true,
@@ -120,16 +122,21 @@ const Chart = () => {
 				},
 				suggestedMin: 0,
 				suggestedMax: 10,
+				rotation: (context) => (context.index * Math.PI) / 6,
+				beginAtZero: true,
 				pointLabels: {
+					padding: 2,
 					display: true,
-					align: "center",
+					align: "start",
+					beginAtZero: true,
 					centerPointLabels: true,
-					rotation: "auto",
 					font: {
 						size: fontSize,
 					},
+					maxWidth: 5,
 				},
 			},
+			beginAtZero: true,
 		},
 		elements: {
 			arc: {
@@ -147,11 +154,14 @@ const Chart = () => {
 				enabled: false,
 			},
 		},
-	};
 
+		startAngle: Math.PI,
+	};
+	console.log(labels);
+	console.log(...breakWordsIntoChunks(labels, 6));
 	return (
 		<div className={style.container}>
-			<div className={style.wrapper}>
+			<div className={style.wrapper} style={{ whiteSpace: "pre" }}>
 				<PolarArea data={data} options={options} />
 			</div>
 		</div>

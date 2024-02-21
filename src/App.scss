@@ -14,7 +14,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Reckless Neue Light";
+  font-family: "Reckless Neue Light", monospace;
 
 }
 
@@ -23,8 +23,14 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20vh;
-  padding: 5vw;
+  overflow: hidden;
+  background-color: #fffdfb;
+}
+
+.app {
+  padding: 0 3.5%;
+  width: 100%;
+
 }
 
 .button-primary {
@@ -178,12 +184,29 @@ input[type=range]:focus::-ms-fill-upper {
   display: flex !important;
 }
 
+.displayOn1200 {
+  display: none !important;
+}
+
+.hideOn1200 {
+  display: unset;
+}
+
+
 @media (max-width:1200px) {
   .displayOnMobileView {
     display: flex !important;
   }
 
   .hideOnMobileView {
+    display: none !important;
+  }
+
+  .displayOn1200 {
+    display: flex !important;
+  }
+
+  .hideOn1200 {
     display: none !important;
   }
 }
