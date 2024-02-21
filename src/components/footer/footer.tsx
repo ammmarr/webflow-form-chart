@@ -67,8 +67,8 @@ const Footer = () => {
 					))}
 				</div>
 				<div className={`${style.columnIcons} `}>
-					{socials.map((item) => (
-						<img src={item.icon} alt="icon" />
+					{socials.map((item, i) => (
+						<img src={item.icon} alt="icon" key={i} />
 					))}
 				</div>
 			</div>
@@ -86,8 +86,8 @@ const Footer = () => {
 				<span>© 2024 The Growing Seed. All rights reserved</span>
 			</div>
 			<div className={`${style.right} `}>
-				{socials.map((item) => (
-					<img src={item.icon} alt="icon" />
+				{socials.map((item, i) => (
+					<img src={item.icon} alt="icon" key={i} />
 				))}
 			</div>
 		</div>

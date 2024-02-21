@@ -55,7 +55,9 @@ const Navbar = () => {
 				}`}
 			>
 				{navBarRoutes.map((item) => (
-					<span>{item.name}</span>
+					<a href={item.link} target="_self" key={item.name}>
+						{item.name}
+					</a>
 				))}
 			</div>
 		</>
