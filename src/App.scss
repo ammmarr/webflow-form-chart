@@ -171,11 +171,11 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .displayOnMobileView {
-  display: none;
+  display: none !important;
 }
 
 .hideOnMobileView {
-  display: flex;
+  display: flex !important;
 }
 
 @media (max-width:1200px) {

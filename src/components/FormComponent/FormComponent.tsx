@@ -66,10 +66,7 @@ const FormComponent = () => {
 				{currentPage === 0 && <FormItemsSelection />}
 				{currentPage === 1 && <RangeInputs />}
 			</form>
-			<div
-				className={`${style.nextAndPrev} displayOnMobileView`}
-				style={{ gap: "1rem" }}
-			>
+			<div className={`${style.nextAndPrev} displayOnMobileView`}>
 				{currentPage !== 0 && (
 					<button
 						className={

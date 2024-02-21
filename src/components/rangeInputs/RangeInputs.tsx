@@ -1,19 +1,39 @@
 import Slider from "@mui/material/Slider";
 import useFormStore from "../../store";
 import style from "./index.module.scss";
+import { useState } from "react";
 
 const RangeInputs = () => {
+	const [valueLabelDisplay, setValueLabelDisplay] = useState<
+		"on" | "auto" | "off"
+	>("auto");
+	const [activeItemIndex, setActiveItemIndex] = useState(null);
 	const rangeValues = useFormStore((store) => store.rangeValues);
+
 	const handleInputValueChange = useFormStore(
 		(store) => store.handleInputValueChange,
 	);
 	const steps = 10;
 
 	// });
+	const handleTouchStart = (index) => {
+		setActiveItemIndex(index);
+		setValueLabelDisplay("on");
+	};
+	const handleTouchEnd = (index) => {
+		setActiveItemIndex(index);
+		setValueLabelDisplay("auto");
+	};
 	return (
 		<div className={style.container}>
-			{rangeValues.map((item) => (
-				<div className={style.inputContainer} key={item.name}>
+			{rangeValues.map((item, i) => (
+				<div
+					className={style.inputContainer}
+					key={item.name}
+					onTouchStart={() => handleTouchStart(i)}
+					// onTouchEnd={() => handleTouchEnd(i)}
+					onClick={() => handleTouchStart(i)}
+				>
 					<label>{item.name}</label>
 					<Slider
 						size="medium"
@@ -22,7 +42,9 @@ const RangeInputs = () => {
 						min={1}
 						max={steps}
 						step={1}
-						valueLabelDisplay="auto"
+						valueLabelDisplay={
+							activeItemIndex === i ? valueLabelDisplay : "auto"
+						}
 						onChange={(_event, value: number) =>
 							handleInputValueChange(item.name, value)
 						}
