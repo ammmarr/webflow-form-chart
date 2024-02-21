@@ -86,7 +86,7 @@ const Chart = () => {
 					stepSize: 1, // Set the step size for ticks
 					reverse: true,
 					font: {
-						size: fontSize + 2,
+						size: fontSize,
 					},
 
 					display: true,
