@@ -34,7 +34,7 @@ const FormComponent = () => {
 						<p key={p}>{p}</p>
 					))}
 				</div>
-				<div className={style.nextAndPrev}>
+				<div className={`${style.nextAndPrev} hideOnMobileView`}>
 					{currentPage !== 0 && (
 						<button
 							className={
@@ -66,6 +66,35 @@ const FormComponent = () => {
 				{currentPage === 0 && <FormItemsSelection />}
 				{currentPage === 1 && <RangeInputs />}
 			</form>
+			<div
+				className={`${style.nextAndPrev} displayOnMobileView`}
+				style={{ gap: "1rem" }}
+			>
+				{currentPage !== 0 && (
+					<button
+						className={
+							isPrevDisabled ? "button-primary-disabled" : "button-primary"
+						}
+						type="button"
+						onClick={goToPrevFormPage}
+						disabled={isPrevDisabled}
+					>
+						Prev
+					</button>
+				)}
+				{currentPage !== 2 && (
+					<button
+						className={
+							isNextDisabled ? "button-primary-disabled" : "button-primary"
+						}
+						type="button"
+						onClick={goToNextFormPage}
+						disabled={isNextDisabled}
+					>
+						Next
+					</button>
+				)}
+			</div>
 		</div>
 	);
 };

@@ -169,3 +169,21 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
+
+.displayOnMobileView {
+  display: none;
+}
+
+.hideOnMobileView {
+  display: flex;
+}
+
+@media (max-width:1200px) {
+  .displayOnMobileView {
+    display: flex !important;
+  }
+
+  .hideOnMobileView {
+    display: none !important;
+  }
+}

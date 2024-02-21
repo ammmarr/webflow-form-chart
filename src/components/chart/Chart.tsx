@@ -75,7 +75,6 @@ const Chart = () => {
 		legend: {
 			display: false,
 		},
-
 		hover: {
 			mode: "nearest",
 			intersect: true,
@@ -83,13 +82,19 @@ const Chart = () => {
 		scales: {
 			r: {
 				ticks: {
-					display: false, // Hide the ticks (radius values) on the r scale
+					stepSize: 1, // Set the step size for ticks
+					font: {
+						size: fontSize + 2,
+					},
+					display: true,
+					backdropColor: "transparent",
+					color: "black", // Transparent color for the ticks on the radial axis
 				},
 				pointLabels: {
 					display: true,
-					align: "center", // Position labels radially
+					align: "center",
 					centerPointLabels: true,
-					rotation: "auto",
+					rotation: "auto", // This line might not be necessary, but you can keep it if you want automatic rotation fallback
 					font: {
 						size: fontSize,
 					},
@@ -98,19 +103,18 @@ const Chart = () => {
 		},
 		elements: {
 			arc: {
-				borderWidth: 5, // Increase the border width for better visibility
-				borderColor: "#000", // Set border color
-				backgroundColor: "rgba(0, 0, 0, 0)", // Set transparent background color
+				borderWidth: 1,
+				borderColor: "#000",
+				backgroundColor: "rgba(0, 0, 0, 0)",
 			},
 		},
-		startAngle: -0.5 * Math.PI,
-		rotation: -0.5 * Math.PI,
+
 		plugins: {
 			legend: {
 				display: false,
 			},
 			tooltip: {
-				enabled: false, // Disable tooltips
+				enabled: false,
 			},
 		},
 	};
