@@ -23,6 +23,9 @@ interface FormStoreActions {
 	removeItemFromSelected: (itemToRemove: string) => void;
 	goToNextFormPage: () => void;
 	goToPrevFormPage: () => void;
+	resetFormData: () => void;
+	goToFormPage: (index: number) => void;
+
 	handleInputValueChange: (name: string, value: number) => void; // Add this function
 }
 
@@ -96,6 +99,14 @@ const useFormStore = create<FormStoreState & FormStoreActions>((set, get) => ({
 		// Add the clicked item to rangeValues with value 0
 		set({ rangeValues: [...rangeValues, { name: item, value: 3 }] });
 	},
+	resetFormData: () => {
+		set({
+			toBeSelected: [...initialFormData],
+			selectedFormData: [],
+			rangeValues: [],
+			currentFormPage: 0,
+		});
+	},
 	removeItemFromSelected: (itemToRemove) => {
 		// Remove the clicked item from selectedItems
 		const { selectedFormData, toBeSelected, initialFormData, rangeValues } =
@@ -147,6 +158,9 @@ const useFormStore = create<FormStoreState & FormStoreActions>((set, get) => ({
 			const toBeUpdated = currentFormPage - 1;
 			set({ currentFormPage: toBeUpdated });
 		}
+	},
+	goToFormPage: (index) => {
+		set({ currentFormPage: index });
 	},
 	handleInputValueChange: (name, value) => {
 		// Update the value of rangeValues for the input field with the given name

@@ -8,7 +8,7 @@ function App() {
 		<>
 			<Navbar />
 			<div className="app">
-				<FormComponent />;
+				<FormComponent />
 				<Footer />
 			</div>
 		</>

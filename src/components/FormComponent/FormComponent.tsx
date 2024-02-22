@@ -24,11 +24,15 @@ const paragraphs = [
 const FormComponent = () => {
 	const goToNextFormPage = useFormStore((store) => store.goToNextFormPage);
 	const goToPrevFormPage = useFormStore((store) => store.goToPrevFormPage);
+	const resetFormData = useFormStore((store) => store.resetFormData);
 	const currentPage = useFormStore((store) => store.currentFormPage);
 	const rangeValues = useFormStore((store) => store.rangeValues);
 	const isNextDisabled =
-		rangeValues.length < 1 || rangeValues.length > 12 || currentPage === 2;
+		rangeValues.length < 6 || rangeValues.length > 12 || currentPage === 2;
 	const isPrevDisabled = currentPage === 0;
+	const handleRestart = () => {
+		resetFormData();
+	};
 	return (
 		<div className={style.wrapper}>
 			<div className={style.container}>
@@ -40,7 +44,7 @@ const FormComponent = () => {
 						))}
 					</div>
 					<div className={`${style.nextAndPrev} hideOnMobileView`}>
-						{currentPage !== 0 && (
+						{currentPage === 1 && (
 							<button
 								className={
 									isPrevDisabled ? "button-primary-disabled" : "button-primary"
@@ -50,6 +54,16 @@ const FormComponent = () => {
 								disabled={isPrevDisabled}
 							>
 								Prev
+							</button>
+						)}
+						{currentPage === 2 && (
+							<button
+								className={"button-primary"}
+								type="button"
+								onClick={handleRestart}
+								disabled={isPrevDisabled}
+							>
+								Start Again!
 							</button>
 						)}
 						{currentPage !== 2 && (
@@ -72,7 +86,7 @@ const FormComponent = () => {
 					{currentPage === 1 && <RangeInputs />}
 				</form>
 				<div className={`${style.nextAndPrev} displayOnMobileView`}>
-					{currentPage !== 0 && (
+					{currentPage === 1 && (
 						<button
 							className={
 								isPrevDisabled ? "button-primary-disabled" : "button-primary"
@@ -82,6 +96,16 @@ const FormComponent = () => {
 							disabled={isPrevDisabled}
 						>
 							Prev
+						</button>
+					)}
+					{currentPage === 2 && (
+						<button
+							className={"button-primary"}
+							type="button"
+							onClick={handleRestart}
+							disabled={isPrevDisabled}
+						>
+							Start Again!
 						</button>
 					)}
 					{currentPage !== 2 && (
