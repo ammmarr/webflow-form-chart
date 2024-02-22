@@ -9,17 +9,11 @@ import {
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 import useFormStore from "../../store";
-import annotationPlugin from "chartjs-plugin-annotation";
+// import annotationPlugin from "chartjs-plugin-annotation";
 import style from "./index.module.scss";
 import { useEffect, useState } from "react";
 import breakWordsIntoChunks from "../../utils/breakWordsIntoChunks";
-ChartJS.register(
-	RadialLinearScale,
-	ArcElement,
-	Tooltip,
-	Legend,
-	annotationPlugin,
-);
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 const Chart = () => {
 	const rangeValues = useFormStore((store) => store.rangeValues);

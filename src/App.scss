@@ -1,11 +1,7 @@
 @font-face {
   font-family: "Reckless Neue Light";
-  src: url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.eot");
-  src: url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/df6661ea8e32901509b9a437fff6cfaf.svg#Reckless Neue Light")format("svg");
+  src: url("/src/assets/font/RecklessNeue-Light.ttf");
+
 }
 
 *,
@@ -49,6 +45,7 @@ html {
   font-family: inherit;
   cursor: pointer;
   border: none;
+  text-decoration: none;
 
   &:hover {
     background-color: rgb(50, 52, 58);

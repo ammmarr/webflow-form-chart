@@ -66,6 +66,15 @@ const FormComponent = () => {
 								Start Again!
 							</button>
 						)}
+						{currentPage === 2 && (
+							<a
+								className={"button-primary"}
+								type="button"
+								href="https://calendly.com/thegrowingseed/30min"
+							>
+								Let's connect
+							</a>
+						)}
 						{currentPage !== 2 && (
 							<button
 								className={
@@ -105,8 +114,17 @@ const FormComponent = () => {
 							onClick={handleRestart}
 							disabled={isPrevDisabled}
 						>
-							Start Again!
+							Start Again
 						</button>
+					)}
+					{currentPage === 2 && (
+						<a
+							className={"button-primary"}
+							type="button"
+							href="https://calendly.com/thegrowingseed/30min"
+						>
+							Let's connect
+						</a>
 					)}
 					{currentPage !== 2 && (
 						<button
