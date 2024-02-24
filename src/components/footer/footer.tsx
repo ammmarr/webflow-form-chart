@@ -10,41 +10,41 @@ const Footer = () => {
 	const mid = [
 		{
 			name: "Leadership coaching",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/",
+			link: "https://www.thegrowingseed.org/leadership-executive-and-career-coaching",
 		},
 		{
 			name: "Team coaching",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/",
+			link: "https://www.thegrowingseed.org/team-effectiveness-coaching",
 		},
 		{
 			name: "Bespoke Training",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/",
+			link: "https://www.thegrowingseed.org/bespoke-training",
 		},
 		{
 			name: "Approach",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/approach",
+			link: "https://www.thegrowingseed.org/approach",
 		},
 		{
 			name: "About",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/about",
+			link: "https://www.thegrowingseed.org/about",
 		},
 		{
 			name: "Resources",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/resources",
+			link: "https://www.thegrowingseed.org/resources",
 		},
 	];
 	const right = [
 		{
 			name: "Contact",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/contact",
+			link: "https://www.thegrowingseed.org/contact",
 		},
 		{
 			name: "Terms Of Use",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io",
+			link: "https://www.thegrowingseed.org/",
 		},
 		{
 			name: "Privacy Policy",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io",
+			link: "https://www.thegrowingseed.org/",
 		},
 	];
 	const socials = [
@@ -52,10 +52,17 @@ const Footer = () => {
 		{ icon: insta, link: "" },
 		{ icon: linkedIn, link: "" },
 	];
+	const handleNavigate = (url: string) => {
+		window.location.href = url;
+	};
 	return (
 		<div className={style.contianer}>
 			<div className={`${style.imgContainer} hideOn1200`}>
-				<img src={logo} alt="logo" />
+				<img
+					src={logo}
+					alt="logo"
+					onClick={() => handleNavigate("https://www.thegrowingseed.org")}
+				/>
 				<span>© 2024 The Growing Seed. All rights reserved</span>
 			</div>
 			<div className={style.second}>

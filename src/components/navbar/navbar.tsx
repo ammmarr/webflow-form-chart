@@ -7,29 +7,36 @@ const Navbar = () => {
 	const navBarRoutes = [
 		{
 			name: "Services",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/leadership-and-executive-coaching",
+			link: "https://www.thegrowingseed.org/leadership-and-executive-coaching",
 		},
 		{
 			name: "Approach",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/approach",
+			link: "https://www.thegrowingseed.org/approach",
 		},
 		{
 			name: "About",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/about",
+			link: "https://www.thegrowingseed.org/about",
 		},
 		{
 			name: "Resources",
-			link: "https://the-growing-seed-238c266ba775928176a1ac.webflow.io/resources",
+			link: "https://www.thegrowingseed.org/resources",
 		},
 	];
 	console.log(navbarActive);
 	const handleClick = (e) => {
 		setNavbarActive((prev) => !prev);
 	};
+	const handleNavigate = (url: string) => {
+		window.location.href = url;
+	};
 	return (
 		<>
 			<div className={style.container}>
-				<img src={logo} alt="logo" />
+				<img
+					src={logo}
+					alt="logo"
+					onClick={() => handleNavigate("https://www.thegrowingseed.org")}
+				/>
 				<div className={style.midSection}>
 					{navBarRoutes.map((item) => (
 						<a href={item.link} key={item.name}>
